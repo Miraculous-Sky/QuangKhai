@@ -1,4 +1,9 @@
-import javax.swing.*;
+import model.Time;
+import model.observer.ClockObservable;
+import model.observer.Observable;
+import model.observer.Observer;
+import view.TopFrame;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Timer;
@@ -6,27 +11,12 @@ import java.util.TimerTask;
 
 public class Main {
     public static void main(String[] args) {
-        Time time = new Time();
-        JPanel analogClockPanel = new AnalogClock();
-        JPanel digitalClockPanel = new DigitalClock();
-
-        JFrame analogClockFrame = new JFrame("Analog Clock");
-        analogClockFrame.setSize(200, 200);
-        analogClockFrame.add(analogClockPanel);
-        analogClockFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        analogClockFrame.setVisible(true);
-
-        JFrame digitalClockFrame = new JFrame("Digital Clock");
-        digitalClockFrame.add(digitalClockPanel);
-        digitalClockFrame.setSize(200, 100);
-        digitalClockFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        digitalClockFrame.setVisible(true);
-
+        TopFrame topFrame = new TopFrame();
         Observable observable = new ClockObservable();
-        observable.addSubscriber((Observer) analogClockPanel);
-        observable.addSubscriber((Observer) digitalClockPanel);
+        observable.addSubscriber((Observer) topFrame.analogClockPanel);
+        observable.addSubscriber((Observer) topFrame.digitalClockPanel);
 
-
+        Time time = new Time();
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override

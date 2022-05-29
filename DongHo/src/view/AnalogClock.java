@@ -1,3 +1,8 @@
+package view;
+
+import model.Time;
+import model.observer.Observer;
+
 import javax.swing.*;
 import java.awt.*;
 

@@ -1,3 +1,4 @@
+package model.observer;
 
 public interface Observable {
     void addSubscriber(Observer observer);

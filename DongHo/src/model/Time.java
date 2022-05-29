@@ -1,3 +1,5 @@
+package model;
+
 public class Time {
     private int hour;
     private int minute;
@@ -38,6 +40,6 @@ public class Time {
 
     @Override
     public String toString() {
-        return hour + ":" + minute + ":" + second;
+        return String.format("%02d", hour) + ":" + String.format("%02d", minute) + ":" + String.format("%02d", second);
     }
 }
