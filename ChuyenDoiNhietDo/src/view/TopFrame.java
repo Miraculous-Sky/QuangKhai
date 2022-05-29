@@ -12,7 +12,7 @@ public class TopFrame extends JFrame {
     public TopFrame(TemperatureModel temperatureModel) {
         this.model = temperatureModel;
         setTitle("Temperature");
-        setSize(400, 400);
+        setSize(400, 300);
         setResizable(false);
 
         setLayout(new GridBagLayout());
@@ -28,6 +28,7 @@ public class TopFrame extends JFrame {
         c.gridx = 1;
         c.gridy = 0;
         c.gridheight = 2;
+        c.ipadx = 150;
         c.fill = GridBagConstraints.BOTH;
         add(pnlThermometer = new ThermometerPanel(temperatureModel), c);
 

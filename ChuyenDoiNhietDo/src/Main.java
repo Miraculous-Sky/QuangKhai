@@ -10,6 +10,7 @@ public class Main {
         temperatureModel.addSubscriber((Observer) topFrame.pnlFDegree);
         temperatureModel.addSubscriber((Observer) topFrame.pnlCDegree);
         temperatureModel.addSubscriber((Observer) topFrame.pnlThermometer);
+        temperatureModel.setF(0);
 
     }
 }
